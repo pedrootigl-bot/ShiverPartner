@@ -98,6 +98,8 @@ function PartnerProgram() {
                 width="1014"
                 height="792"
                 loading="lazy"
+                decoding="async"
+                sizes="(max-width: 720px) 92vw, (max-width: 1024px) 640px, 560px"
               />
             </div>
 

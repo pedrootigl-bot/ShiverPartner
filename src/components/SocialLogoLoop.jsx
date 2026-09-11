@@ -1,5 +1,6 @@
 import { SiYoutube, SiInstagram, SiTiktok } from 'react-icons/si'
 import LogoLoop from './LogoLoop'
+import { useIsMobile } from '../hooks/useIsMobile'
 import './SocialLogoLoop.css'
 
 const socialLogos = [
@@ -9,6 +10,8 @@ const socialLogos = [
 ]
 
 function SocialLogoLoop() {
+  const isMobile = useIsMobile()
+
   return (
     <section className="social-logo-loop" aria-labelledby="social-logo-loop-title">
       <div className="social-logo-loop__inner">
@@ -19,12 +22,12 @@ function SocialLogoLoop() {
         <div className="social-logo-loop__track-wrap">
           <LogoLoop
             logos={socialLogos}
-            speed={90}
+            speed={isMobile ? 70 : 90}
             direction="left"
-            logoHeight={42}
-            gap={56}
+            logoHeight={isMobile ? 32 : 42}
+            gap={isMobile ? 36 : 56}
             hoverSpeed={0}
-            scaleOnHover
+            scaleOnHover={!isMobile}
             fadeOut
             fadeOutColor="#070812"
             ariaLabel="Plataformas sociais: YouTube, Instagram e TikTok"

@@ -38,3 +38,26 @@
   opacity: 1;
   color: #eef3ff;
 }
+
+@media (max-width: 640px) {
+  .social-logo-loop {
+    padding: 2rem 0 2.25rem;
+  }
+
+  .social-logo-loop__inner {
+    width: min(100%, calc(100% - 2rem));
+  }
+
+  .social-logo-loop__label {
+    font-size: 0.7rem;
+    margin-bottom: 1rem;
+  }
+
+  .social-logo-loop__track-wrap {
+    height: 68px;
+  }
+
+  .social-logo-loop__track-wrap .logoloop__node {
+    filter: none;
+  }
+}

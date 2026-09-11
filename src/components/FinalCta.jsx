@@ -1,18 +1,21 @@
 import GhostFibers from './GhostFibers'
+import { useIsMobile } from '../hooks/useIsMobile'
 import './FinalCta.css'
 
 function FinalCta() {
+  const isMobile = useIsMobile()
+
   return (
     <section id="contato" className="final-cta">
       <div className="final-cta__bg" aria-hidden="true">
         <GhostFibers
           lineColor="#0B1528"
           glowColor="#4FA8E8"
-          speed={0.18}
+          speed={isMobile ? 0.12 : 0.18}
           scale={2.1}
           rotation={0}
-          rotationSpeed={0.2}
-          layers={4}
+          rotationSpeed={isMobile ? 0.12 : 0.2}
+          layers={isMobile ? 2 : 4}
           waveAmplitude={0.015}
           waveFrequency={3}
           waveSpeed={0.15}
@@ -22,14 +25,15 @@ function FinalCta() {
           twistSpeed={1.1}
           lineFrequency={5}
           lineSpacing={2}
-          lineSharpness={16}
+          lineSharpness={isMobile ? 12 : 16}
           glowFalloff={10}
-          glowIntensity={1.45}
-          brightness={1.85}
+          glowIntensity={isMobile ? 1.2 : 1.45}
+          brightness={isMobile ? 1.5 : 1.85}
           blueBoost={1.15}
           vignette={0.85}
-          grain={0.04}
-          dpr={1}
+          grain={isMobile ? 0.02 : 0.04}
+          dpr={isMobile ? 0.7 : 1}
+          fps={isMobile ? 30 : 60}
         />
       </div>
 

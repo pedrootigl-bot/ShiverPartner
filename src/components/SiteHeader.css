@@ -130,16 +130,45 @@
 }
 
 @media (max-width: 640px) {
+  .site-header {
+    min-height: 100svh;
+    place-items: end stretch;
+  }
+
   .site-header__content {
-    margin-bottom: 8vh;
+    width: min(100%, calc(100% - 2rem));
+    margin: 0 auto max(6vh, env(safe-area-inset-bottom, 0px) + 2rem);
+  }
+
+  .site-header__brand .stroke-text__svg {
+    height: clamp(2.6rem, 14vw, 3.6rem);
+  }
+
+  .site-header__headline {
+    font-size: 1.05rem;
+  }
+
+  .site-header__lede {
+    font-size: 0.95rem;
+    margin-bottom: 1.35rem;
   }
 
   .site-header__actions {
     flex-direction: column;
+    gap: 0.75rem;
   }
 
   .site-header__cta,
   .site-header__link {
     width: 100%;
+    min-height: 3rem;
+  }
+
+  .site-header__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(154, 212, 255, 0.25);
+    border-bottom-color: rgba(154, 212, 255, 0.25);
   }
 }
