@@ -3,17 +3,17 @@
   overflow: hidden;
   margin: 0 auto;
   border: 1px solid rgba(0, 163, 255, 0.28);
-  border-radius: 1.25rem;
-  padding: 16px;
+  border-radius: 1.35rem;
+  padding: 18px;
   background: rgba(8, 12, 24, 0.55);
-  --outer-r: 1.25rem;
-  --p-distance: 12px;
+  --outer-r: 1.35rem;
+  --p-distance: 14px;
   touch-action: pan-y;
 }
 
 .carousel-track {
   display: flex;
-  min-height: 15.5rem;
+  min-height: 19.5rem;
 }
 
 .carousel-item {
@@ -22,9 +22,10 @@
   flex-shrink: 0;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 0.65rem;
-  padding: 2.5rem 1.1rem 1.35rem;
+  justify-content: center;
+  gap: 0.85rem;
+  min-height: 19.5rem;
+  padding: 2.75rem 1.35rem 1.6rem;
   border: 1px solid rgba(0, 163, 255, 0.28);
   border-radius: calc(var(--outer-r) - var(--p-distance));
   background: linear-gradient(180deg, rgba(16, 24, 44, 0.96), rgba(8, 12, 24, 0.94));
@@ -45,29 +46,29 @@
   z-index: 2;
   display: inline-grid;
   place-items: center;
-  width: 2.05rem;
-  height: 2.05rem;
+  width: 2.35rem;
+  height: 2.35rem;
   margin-top: -0.55rem;
   transform: translateX(-50%);
   border-radius: 999px;
   border: 1px solid rgba(0, 163, 255, 0.55);
   background: #0d8fd4;
   color: #fff;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   font-weight: 800;
 }
 
 .carousel-item-header {
-  margin: 0.2rem 0 0;
+  margin: 0.35rem 0 0;
   padding: 0;
 }
 
 .carousel-icon-container {
   display: inline-grid;
   place-items: center;
-  width: 3.75rem;
-  height: 3.75rem;
-  border-radius: 1rem;
+  width: 4.35rem;
+  height: 4.35rem;
+  border-radius: 1.1rem;
   color: #4db8ff;
   background: rgba(0, 163, 255, 0.08);
   border: 1px solid rgba(0, 163, 255, 0.28);
@@ -75,29 +76,29 @@
 
 .carousel-icon-container svg,
 .carousel-icon {
-  width: 2rem;
-  height: 2rem;
+  width: 2.35rem;
+  height: 2.35rem;
 }
 
 .carousel-item-content {
-  padding: 0 0.15rem;
+  padding: 0 0.2rem;
   width: 100%;
 }
 
 .carousel-item-title {
-  margin: 0 0 0.45rem;
+  margin: 0 0 0.55rem;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: clamp(1.15rem, 4.8vw, 1.35rem);
   line-height: 1.25;
   color: #eef3ff;
 }
 
 .carousel-item-description {
   margin: 0 auto;
-  max-width: 26ch;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  max-width: 28ch;
+  font-size: clamp(0.95rem, 3.8vw, 1.05rem);
+  line-height: 1.55;
   color: rgba(238, 243, 255, 0.68);
 }
 

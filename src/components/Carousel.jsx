@@ -52,7 +52,7 @@ export default function Carousel({
   loop = false,
   round = false,
 }) {
-  const containerPadding = 16
+  const containerPadding = 18
   const itemWidth = baseWidth - containerPadding * 2
   const trackItemOffset = itemWidth + GAP
 

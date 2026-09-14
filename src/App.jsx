@@ -10,12 +10,14 @@ import WhoCanJoin from './components/WhoCanJoin'
 import Faq from './components/Faq'
 import FinalCta from './components/FinalCta'
 import SiteFooter from './components/SiteFooter'
+import SmoothScroll from './components/SmoothScroll'
 import './App.css'
 import './styles/mobile.css'
 
 function App() {
   return (
     <div className="app">
+      <SmoothScroll />
       <SiteNav />
       <SiteHeader />
 

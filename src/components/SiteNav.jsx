@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import shiverLogo from '../assets/shiver-logo.webp'
 import GooeyNav from './GooeyNav'
 import { useIsMobile } from '../hooks/useIsMobile'
+import { startSmoothScroll, stopSmoothScroll } from '../lib/smoothScroll'
 import './SiteNav.css'
 
 const desktopNavItems = [
@@ -43,10 +44,12 @@ function SiteNav() {
 
     const { overflow } = document.body.style
     document.body.style.overflow = 'hidden'
+    stopSmoothScroll()
     document.addEventListener('keydown', onKey)
 
     return () => {
       document.body.style.overflow = overflow
+      startSmoothScroll()
       document.removeEventListener('keydown', onKey)
     }
   }, [menuOpen])

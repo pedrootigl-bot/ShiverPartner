@@ -96,18 +96,18 @@ const steps = [
   },
 ]
 
-function useCarouselWidth(maxWidth = 320) {
+function useCarouselWidth(maxWidth = 380) {
   const [width, setWidth] = useState(() => {
     if (typeof window === 'undefined') return maxWidth
-    const pad = window.innerWidth > 900 ? 80 : 40
-    return Math.min(maxWidth, Math.max(260, window.innerWidth - pad))
+    const pad = window.innerWidth > 900 ? 80 : 32
+    return Math.min(maxWidth, Math.max(300, window.innerWidth - pad))
   })
 
   useEffect(() => {
     const update = () => {
-      const pad = window.innerWidth > 900 ? 80 : 40
-      const cap = window.innerWidth > 900 ? 360 : maxWidth
-      setWidth(Math.min(cap, Math.max(260, window.innerWidth - pad)))
+      const pad = window.innerWidth > 900 ? 80 : 32
+      const cap = window.innerWidth > 900 ? 400 : maxWidth
+      setWidth(Math.min(cap, Math.max(300, window.innerWidth - pad)))
     }
     update()
     window.addEventListener('resize', update)
@@ -121,7 +121,7 @@ function HowItWorks() {
   const isMobile = useIsMobile(900)
   const { ref, visible } = useReveal()
   const revealed = visible ? ' is-revealed' : ''
-  const carouselWidth = useCarouselWidth(320)
+  const carouselWidth = useCarouselWidth(380)
 
   const carouselItems = useMemo(
     () =>
