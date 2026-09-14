@@ -1,0 +1,361 @@
+.earn-ways {
+  --ew-ink: #eef3ff;
+  --ew-muted: rgba(220, 230, 245, 0.72);
+  --ew-accent: #4db8ff;
+  --ew-strong: #00a3ff;
+  --ew-card: rgba(8, 12, 22, 0.62);
+  --ew-border: rgba(0, 163, 255, 0.38);
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(5.5rem, 11vw, 8.5rem) 0 clamp(4.5rem, 9vw, 7rem);
+  background: #05080f;
+}
+
+.earn-ways__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.earn-ways__bg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 70%;
+}
+
+.earn-ways__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(55% 50% at 50% 42%, rgba(0, 40, 80, 0.12), transparent 70%),
+    linear-gradient(
+      180deg,
+      rgba(5, 8, 15, 0.45) 0%,
+      rgba(5, 8, 15, 0.18) 42%,
+      rgba(5, 8, 15, 0.35) 100%
+    );
+}
+
+.earn-ways__shell {
+  position: relative;
+  z-index: 2;
+  width: min(1100px, calc(100% - 2.5rem));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.earn-ways__header {
+  max-width: 40rem;
+  margin-bottom: clamp(2.4rem, 5vw, 3.25rem);
+}
+
+.earn-ways__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin: 0 0 1rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(210, 222, 240, 0.78);
+}
+
+.earn-ways__title {
+  margin: 0 0 0.95rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--ew-ink);
+}
+
+.earn-ways__title span {
+  color: #4db8ff;
+  text-shadow: 0 0 28px rgba(0, 163, 255, 0.55);
+}
+
+.earn-ways__lede {
+  margin: 0 auto;
+  max-width: 44ch;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ew-muted);
+}
+
+.earn-ways__cards {
+  list-style: none;
+  width: 100%;
+  margin: 0 0 2.25rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.earn-ways__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 100%;
+  padding: 1.25rem 1.2rem 1.55rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--ew-border);
+  background: linear-gradient(180deg, rgba(14, 22, 40, 0.78), rgba(6, 10, 20, 0.72));
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 0 0 1px rgba(0, 163, 255, 0.06) inset,
+    0 18px 40px rgba(0, 0, 0, 0.35),
+    0 0 28px rgba(0, 163, 255, 0.08);
+}
+
+.earn-ways__card-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.earn-ways__index {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(180, 198, 220, 0.55);
+}
+
+.earn-ways__badge {
+  display: inline-grid;
+  place-items: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 999px;
+  color: #7ec8ff;
+  border: 1px solid rgba(0, 163, 255, 0.45);
+  background: rgba(0, 163, 255, 0.12);
+  box-shadow: 0 0 14px rgba(0, 163, 255, 0.28);
+}
+
+.earn-ways__badge svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.earn-visual {
+  position: relative;
+  width: 9.5rem;
+  height: 8.25rem;
+  margin: 0.2rem 0 0.85rem;
+  display: grid;
+  place-items: center;
+}
+
+.earn-visual__svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+}
+
+.earn-visual--play .earn-visual__svg {
+  animation: earn-pulse 4.8s ease-in-out infinite;
+}
+
+.earn-visual--chart .earn-visual__svg,
+.earn-visual--coins .earn-visual__svg {
+  animation: earn-float-soft 5.4s ease-in-out infinite;
+}
+
+.earn-ways__card-title {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ew-ink);
+}
+
+.earn-ways__card-title span {
+  color: #4db8ff;
+}
+
+.earn-ways__card-text {
+  margin: 0 0 1rem;
+  max-width: 26ch;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ew-muted);
+}
+
+.earn-ways__accent {
+  display: block;
+  width: 2.4rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #00a3ff, transparent);
+  box-shadow: 0 0 10px rgba(0, 163, 255, 0.55);
+  margin-top: auto;
+  align-self: flex-start;
+  margin-left: 0.35rem;
+}
+
+.earn-ways__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3.2rem;
+  min-width: min(100%, 18rem);
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(126, 200, 255, 0.55);
+  background: linear-gradient(90deg, #1a8fd9 0%, #3db8ff 55%, #7ec8ff 100%);
+  color: #041018;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow:
+    0 0 0 1px rgba(0, 163, 255, 0.18),
+    0 14px 36px rgba(0, 136, 224, 0.4),
+    0 0 40px rgba(0, 163, 255, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.earn-ways__cta:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(0, 163, 255, 0.28),
+    0 18px 42px rgba(0, 136, 224, 0.5),
+    0 0 48px rgba(0, 163, 255, 0.32);
+}
+
+.earn-ways__perks {
+  list-style: none;
+  margin: 1.65rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.75rem;
+}
+
+.earn-ways__perks li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  color: rgba(210, 222, 240, 0.78);
+}
+
+.earn-ways__perk-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  color: #7ec8ff;
+  filter: drop-shadow(0 0 8px rgba(0, 163, 255, 0.35));
+}
+
+.earn-ways__perk-icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+@keyframes earn-pulse {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.03);
+  }
+}
+
+@keyframes earn-float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-width: 900px) {
+  .earn-ways__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: none;
+  }
+
+  .earn-ways__cards .earn-ways__card:last-child {
+    grid-column: 1 / -1;
+    max-width: 22rem;
+    justify-self: center;
+    width: 100%;
+  }
+
+  .earn-ways__accent {
+    align-self: center;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .earn-ways {
+    padding: 4.25rem 0 3.75rem;
+  }
+
+  .earn-ways__shell {
+    width: min(100%, calc(100% - 2rem));
+  }
+
+  .earn-ways__title {
+    font-size: clamp(1.85rem, 8vw, 2.5rem);
+  }
+
+  .earn-ways__cards {
+    grid-template-columns: 1fr;
+    max-width: 22rem;
+  }
+
+  .earn-ways__cards .earn-ways__card:last-child {
+    grid-column: auto;
+    max-width: none;
+  }
+
+  .earn-ways__cta {
+    width: 100%;
+  }
+
+  .earn-ways__perks {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .earn-ways__bg img {
+    object-position: center 78%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .earn-visual--play .earn-visual__svg,
+  .earn-visual--chart .earn-visual__svg,
+  .earn-visual--coins .earn-visual__svg {
+    animation: none;
+  }
+}

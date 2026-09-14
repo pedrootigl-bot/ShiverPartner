@@ -1,5 +1,139 @@
-.app {
-  min-height: 100svh;
-  background: var(--bg);
-  overflow-x: hidden;
+main > section {
+  scroll-margin-top: calc(5rem + env(safe-area-inset-top, 0px));
 }
+
+/* Soften hard cuts between sections */
+.site-header,
+main > section {
+  position: relative;
+}
+
+.site-header::after,
+main > section::before,
+main > section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: clamp(4.5rem, 11vw, 8rem);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.site-header::after,
+main > section::after {
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    var(--bg) 0%,
+    rgba(7, 8, 18, 0.72) 35%,
+    transparent 100%
+  );
+}
+
+main > section::before {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--bg) 0%,
+    rgba(7, 8, 18, 0.72) 35%,
+    transparent 100%
+  );
+}
+
+/* Keep real content above the blend layers */
+.site-header__content,
+main > section > *:not([aria-hidden='true']) {
+  position: relative;
+  z-index: 5;
+}
+
+/* Avoid stacking two strong fades at the very start */
+main > section:first-child::before {
+  height: clamp(3rem, 7vw, 5rem);
+  opacity: 0.75;
+}
+
+/* How it works → Earn ways */
+.how-it-works::after {
+  height: clamp(6rem, 14vw, 10rem);
+  background: linear-gradient(
+    to top,
+    #05080f 0%,
+    rgba(5, 8, 15, 0.92) 28%,
+    rgba(7, 8, 18, 0.45) 62%,
+    transparent 100%
+  );
+}
+
+/* Earn ways: blend with previous + next sections */
+.earn-ways::before {
+  height: clamp(6rem, 14vw, 10rem);
+  opacity: 1;
+  background: linear-gradient(
+    to bottom,
+    #070812 0%,
+    rgba(7, 8, 18, 0.9) 30%,
+    rgba(5, 8, 15, 0.4) 65%,
+    transparent 100%
+  );
+}
+
+.earn-ways::after {
+  height: clamp(6rem, 14vw, 10rem);
+  opacity: 1;
+  background: linear-gradient(
+    to top,
+    #050a15 0%,
+    rgba(5, 10, 21, 0.92) 28%,
+    rgba(5, 8, 15, 0.4) 65%,
+    transparent 100%
+  );
+}
+
+/* Earn ways → Creator dashboard */
+.creator-dashboard::before {
+  height: clamp(6rem, 14vw, 10rem);
+  background: linear-gradient(
+    to bottom,
+    #050a15 0%,
+    rgba(5, 10, 21, 0.88) 32%,
+    rgba(5, 10, 21, 0.35) 65%,
+    transparent 100%
+  );
+}
+
+/* Final CTA: keep atmosphere, lighter top blend only */
+.final-cta::after {
+  display: none;
+}
+
+.final-cta::before {
+  height: clamp(3.5rem, 8vw, 6rem);
+  background: linear-gradient(
+    to bottom,
+    var(--bg) 0%,
+    rgba(7, 8, 18, 0.55) 40%,
+    transparent 100%
+  );
+}
+
+@media (max-width: 640px) {
+  main > section {
+    scroll-margin-top: calc(4.25rem + env(safe-area-inset-top, 0px));
+  }
+
+  .site-header::after,
+  main > section::before,
+  main > section::after {
+    height: clamp(3rem, 10vw, 5rem);
+  }
+
+  .how-it-works::after,
+  .earn-ways::before,
+  .earn-ways::after,
+  .creator-dashboard::before {
+    height: clamp(3.5rem, 12vw, 5.5rem);
+  }
+}
+

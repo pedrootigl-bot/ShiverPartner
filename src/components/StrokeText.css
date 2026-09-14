@@ -17,5 +17,5 @@
 .stroke-text__stroke,
 .stroke-text__fill {
   user-select: none;
-  font-family: var(--font-display, 'Syne', sans-serif);
+  font-family: var(--font-display, 'Roboto', sans-serif);
 }

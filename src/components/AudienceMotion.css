@@ -1,0 +1,280 @@
+.audience-motion {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(680px, 94svh, 920px);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(126, 200, 255, 0.1), transparent 70%),
+    #05060d;
+}
+
+.audience-motion__side {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  width: min(42%, 520px);
+  pointer-events: auto;
+}
+
+.audience-motion__side--left {
+  left: 0;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    #000 55%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(90deg, #000 0%, #000 55%, transparent 100%);
+}
+
+.audience-motion__side--right {
+  right: 0;
+  -webkit-mask-image: linear-gradient(
+    270deg,
+    #000 0%,
+    #000 55%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(270deg, #000 0%, #000 55%, transparent 100%);
+}
+
+.audience-motion__side .drift-wall {
+  -webkit-mask-image:
+    linear-gradient(to top, transparent 0%, #000 18%, #000 82%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to top, transparent 0%, #000 18%, #000 82%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.audience-motion__side .drift-wall__inner {
+  border: 1px solid rgba(126, 200, 255, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(126, 200, 255, 0.08) inset,
+    0 0 20px rgba(126, 200, 255, 0.14);
+}
+
+.audience-motion__side .drift-wall__tile.is-active .drift-wall__inner,
+.audience-motion__side .drift-wall__tile:focus-visible .drift-wall__inner {
+  border-color: rgba(154, 212, 255, 0.9);
+  box-shadow:
+    0 24px 60px -18px rgba(0, 0, 0, 0.7),
+    0 0 28px rgba(126, 200, 255, 0.4);
+}
+
+.audience-motion__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 48% 58% at 50% 48%,
+      rgba(5, 6, 13, 0.96) 0%,
+      rgba(5, 6, 13, 0.88) 28%,
+      rgba(5, 6, 13, 0.55) 52%,
+      rgba(5, 6, 13, 0.18) 72%,
+      transparent 88%
+    ),
+    radial-gradient(
+      ellipse 36% 40% at 50% 48%,
+      rgba(126, 200, 255, 0.08) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(5, 6, 13, 0.35) 28%,
+      rgba(5, 6, 13, 0.75) 50%,
+      rgba(5, 6, 13, 0.35) 72%,
+      transparent 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(5, 6, 13, 0.75) 0%,
+      transparent 22%,
+      transparent 78%,
+      rgba(5, 6, 13, 0.85) 100%
+    );
+}
+
+.audience-motion__content {
+  position: relative;
+  z-index: 2;
+  width: min(560px, calc(100% - 2.5rem));
+  padding: 2rem 1.25rem;
+  text-align: center;
+  pointer-events: none;
+  animation: audience-rise 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.audience-motion__brand {
+  margin: 0 0 0.3rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #eef3ff;
+}
+
+.audience-motion__tagline {
+  margin: 0 0 1.35rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(154, 212, 255, 0.78);
+}
+
+.audience-motion__eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(238, 243, 255, 0.62);
+}
+
+.audience-motion__title {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.15rem, 5.2vw, 3.55rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: #eef3ff;
+  text-wrap: balance;
+  text-shadow: 0 8px 40px rgba(5, 6, 13, 0.85);
+}
+
+.audience-motion__lede {
+  margin: 0 auto 1.75rem;
+  max-width: 36ch;
+  font-size: clamp(0.98rem, 1.5vw, 1.06rem);
+  line-height: 1.6;
+  color: rgba(238, 243, 255, 0.74);
+}
+
+.audience-motion__cta {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 3.15rem;
+  padding: 0.85rem 1.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(126, 200, 255, 0.7);
+  background: rgba(5, 6, 13, 0.65);
+  color: #eef3ff;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow:
+    0 0 0 1px rgba(126, 200, 255, 0.18),
+    0 0 32px rgba(79, 168, 232, 0.4);
+  backdrop-filter: blur(12px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.audience-motion__cta:hover {
+  transform: translateY(-2px);
+  background: rgba(126, 200, 255, 0.14);
+  box-shadow:
+    0 0 0 1px rgba(126, 200, 255, 0.4),
+    0 0 40px rgba(79, 168, 232, 0.55);
+}
+
+.audience-motion__formats {
+  margin: 1.35rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(238, 243, 255, 0.55);
+}
+
+@keyframes audience-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 960px) {
+  .audience-motion__side {
+    width: min(36%, 360px);
+  }
+}
+
+@media (max-width: 768px) {
+  .audience-motion,
+  .audience-motion--mobile {
+    min-height: auto;
+    padding: 5rem 0 4rem;
+  }
+
+  .audience-motion__side {
+    display: none;
+  }
+
+  .audience-motion__veil {
+    background:
+      radial-gradient(
+        ellipse 90% 70% at 50% 45%,
+        rgba(126, 200, 255, 0.1) 0%,
+        transparent 60%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(5, 6, 13, 0.4) 0%,
+        transparent 30%,
+        transparent 70%,
+        rgba(5, 6, 13, 0.55) 100%
+      );
+  }
+
+  .audience-motion__content {
+    width: min(100%, calc(100% - 1.75rem));
+    padding: 0;
+    pointer-events: auto;
+  }
+
+  .audience-motion__title {
+    font-size: clamp(1.7rem, 8vw, 2.2rem);
+  }
+
+  .audience-motion__lede {
+    max-width: none;
+    font-size: 0.95rem;
+  }
+
+  .audience-motion__cta {
+    width: 100%;
+    justify-content: center;
+    pointer-events: auto;
+  }
+
+  .audience-motion__formats {
+    letter-spacing: 0.02em;
+    font-size: 0.7rem;
+    line-height: 1.5;
+    max-width: 22ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audience-motion__content {
+    animation: none;
+  }
+}

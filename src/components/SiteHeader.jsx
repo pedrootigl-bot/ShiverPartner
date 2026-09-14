@@ -7,7 +7,7 @@ function SiteHeader() {
   const isMobile = useIsMobile()
 
   return (
-    <header className="site-header">
+    <header id="topo" className="site-header">
       <div className="site-header__visual" aria-hidden="true">
         <LightPillar
           topColor="#7EC8FF"
@@ -28,6 +28,8 @@ function SiteHeader() {
       <div className="site-header__veil" aria-hidden="true" />
 
       <div className="site-header__content">
+        <p className="site-header__eyebrow">Programa de creators Shiver</p>
+
         <h1 className="site-header__brand">
           <StrokeText
             text="ShiverPartner"
@@ -45,16 +47,24 @@ function SiteHeader() {
             letterSpacing={isMobile ? -2 : -4}
           />
         </h1>
-        <p className="site-header__headline">Parcerias que aquecem o jogo</p>
-        <p className="site-header__lede">
-          Conecte marcas e criadores com presença, ritmo e impacto.
+
+        <p className="site-header__headline">
+          Transforme sua influência
+          <br />
+          <span>em parceria.</span>
         </p>
+
+        <p className="site-header__lede">
+          Campanhas, materiais e acompanhamento para creators
+          trabalharem com a Shiver de forma estruturada.
+        </p>
+
         <div className="site-header__actions">
           <a className="site-header__cta" href="#contato">
-            Começar agora
+            Quero ser parceiro
           </a>
           <a className="site-header__link" href="#como-funciona">
-            Conhecer mais
+            Como funciona
           </a>
         </div>
       </div>
