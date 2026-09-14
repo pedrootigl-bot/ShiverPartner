@@ -9,7 +9,9 @@ import CreatorDashboard from './components/CreatorDashboard'
 import WhoCanJoin from './components/WhoCanJoin'
 import Faq from './components/Faq'
 import FinalCta from './components/FinalCta'
+import SiteFooter from './components/SiteFooter'
 import './App.css'
+import './styles/mobile.css'
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Faq />
         <FinalCta />
       </main>
+
+      <SiteFooter />
     </div>
   )
 }

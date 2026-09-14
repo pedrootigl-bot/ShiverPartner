@@ -1,11 +1,12 @@
-import creator01 from '../assets/creators/creator-01.png'
-import creator02 from '../assets/creators/creator-02.png'
-import creator03 from '../assets/creators/creator-03.png'
-import creator04 from '../assets/creators/creator-04.png'
-import creator05 from '../assets/creators/creator-05.png'
-import creator06 from '../assets/creators/creator-06.png'
+import creator01 from '../assets/creators/creator-01.webp'
+import creator02 from '../assets/creators/creator-02.webp'
+import creator03 from '../assets/creators/creator-03.webp'
+import creator04 from '../assets/creators/creator-04.webp'
+import creator05 from '../assets/creators/creator-05.webp'
+import creator06 from '../assets/creators/creator-06.webp'
 import DriftWall from './DriftWall'
 import { useIsMobile } from '../hooks/useIsMobile'
+import { useReveal } from '../hooks/useReveal'
 import './AudienceMotion.css'
 
 const leftItems = [
@@ -32,30 +33,34 @@ const rightItems = [
   { image: creator06, title: 'Creator em gravação', label: 'Reels' },
 ]
 
-function AudienceCopy() {
+function AudienceCopy({ ready }) {
   return (
-    <div className="audience-motion__content">
-      <p className="audience-motion__brand">ShiverPartner</p>
-      <p className="audience-motion__tagline">Create · Collaborate · Grow</p>
-      <p className="audience-motion__eyebrow">Conteúdo que conecta</p>
+    <div className={`audience-motion__content${ready ? ' is-ready' : ''}`}>
+      <p className="audience-motion__brand audience-motion__item">ShiverPartner</p>
+      <p className="audience-motion__tagline audience-motion__item">
+        Create · Collaborate · Grow
+      </p>
+      <p className="audience-motion__eyebrow audience-motion__item">
+        Conteúdo que conecta
+      </p>
 
-      <h2 id="audience-motion-title" className="audience-motion__title">
+      <h2 id="audience-motion-title" className="audience-motion__title audience-motion__item">
         Sua audiência já está
         <br />
         em movimento.
       </h2>
 
-      <p className="audience-motion__lede">
+      <p className="audience-motion__lede audience-motion__item">
         Leve sua criatividade para campanhas que conectam creators, marcas e
         novas oportunidades.
       </p>
 
-      <a className="audience-motion__cta" href="#contato">
+      <a className="audience-motion__cta audience-motion__item" href="#contato">
         Quero ser parceiro
         <span aria-hidden="true">→</span>
       </a>
 
-      <p className="audience-motion__formats">
+      <p className="audience-motion__formats audience-motion__item">
         Reels · Stories · TikTok · YouTube · Lives
       </p>
     </div>
@@ -63,20 +68,11 @@ function AudienceCopy() {
 }
 
 function AudienceMotion() {
-  const isMobile = useIsMobile(768)
-
-  if (isMobile) {
-    return (
-      <section
-        id="movimento"
-        className="audience-motion audience-motion--mobile"
-        aria-labelledby="audience-motion-title"
-      >
-        <div className="audience-motion__veil" aria-hidden="true" />
-        <AudienceCopy />
-      </section>
-    )
-  }
+  const isMobile = useIsMobile(900)
+  const { ref, visible } = useReveal({
+    threshold: 0.22,
+    rootMargin: '0px 0px -10% 0px',
+  })
 
   const sharedProps = {
     columns: 3,
@@ -97,8 +93,27 @@ function AudienceMotion() {
     overlayColor: '#070812',
   }
 
+  if (isMobile) {
+    return (
+      <section
+        id="movimento"
+        ref={ref}
+        className="audience-motion audience-motion--mobile"
+        aria-labelledby="audience-motion-title"
+      >
+        <div className="audience-motion__veil" aria-hidden="true" />
+        <AudienceCopy ready={visible} />
+      </section>
+    )
+  }
+
   return (
-    <section id="movimento" className="audience-motion" aria-labelledby="audience-motion-title">
+    <section
+      id="movimento"
+      ref={ref}
+      className="audience-motion"
+      aria-labelledby="audience-motion-title"
+    >
       <div className="audience-motion__side audience-motion__side--left" aria-hidden="true">
         <DriftWall {...sharedProps} items={leftItems} turn={28} direction="up" />
       </div>
@@ -108,7 +123,7 @@ function AudienceMotion() {
       </div>
 
       <div className="audience-motion__veil" aria-hidden="true" />
-      <AudienceCopy />
+      <AudienceCopy ready={visible} />
     </section>
   )
 }

@@ -12,7 +12,7 @@ Seção `PartnerProgram` alinhada ao modelo split: copy + visual com cards glass
 - Footnote “Pessoas reais. Oportunidades reais.”
 
 ### Direita
-- Imagem do creator (`partner-hero.png`)
+- Imagem do creator (`partner-hero.webp`)
 - Cards: Creator aprovado, Campanha ativa, Performance (+286%), Recompensas
 - Quote de creator partner
 
@@ -20,4 +20,4 @@ Seção `PartnerProgram` alinhada ao modelo split: copy + visual com cards glass
 
 - `src/components/PartnerProgram.jsx`
 - `src/components/PartnerProgram.css`
-- `src/assets/partner-hero.png`
+- `src/assets/partner-hero.webp`

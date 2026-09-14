@@ -1,32 +1,25 @@
 import GhostFibers from './GhostFibers'
 import { useIsMobile } from '../hooks/useIsMobile'
+import { useReveal } from '../hooks/useReveal'
 import './FinalCta.css'
+
+/** Substituir pelo URL do formulário externo quando estiver pronto. */
+const APPLY_FORM_URL = '#contato'
 
 function FinalCta() {
   const isMobile = useIsMobile()
-
-  function handleSubmit(event) {
-    event.preventDefault()
-    // TODO: conectar API/CRM — por enquanto abre mailto com os dados do formulário
-    const form = event.currentTarget
-    const data = new FormData(form)
-    const body = [
-      `Nome: ${data.get('name') || ''}`,
-      `Social: ${data.get('social') || ''}`,
-      `Email: ${data.get('email') || ''}`,
-      `WhatsApp: ${data.get('whatsapp') || ''}`,
-      `Plataforma: ${data.get('platform') || ''}`,
-      `Nicho: ${data.get('niche') || ''}`,
-    ].join('\n')
-
-    window.location.href = `mailto:contato@shiverpartner.com?subject=${encodeURIComponent(
-      'Candidatura ShiverPartner',
-    )}&body=${encodeURIComponent(body)}`
-  }
+  const { ref, visible } = useReveal({
+    threshold: 0.12,
+    rootMargin: '0px 0px -6% 0px',
+  })
 
   return (
-    <section id="contato" className="final-cta">
-      <div className="final-cta__bg" aria-hidden="true">
+    <section
+      id="contato"
+      ref={ref}
+      className={`final-cta${visible ? ' is-revealed' : ''}`}
+    >
+      <div className="final-cta__bg bg-reveal" aria-hidden="true">
         <GhostFibers
           lineColor="#0B1528"
           glowColor="#4FA8E8"
@@ -56,9 +49,9 @@ function FinalCta() {
         />
       </div>
 
-      <div className="final-cta__veil" aria-hidden="true" />
+      <div className="final-cta__veil bg-veil" aria-hidden="true" />
 
-      <div className="final-cta__content">
+      <div className={`final-cta__content reveal${visible ? ' is-revealed' : ''}`}>
         <p className="final-cta__eyebrow">Comece agora</p>
         <h2 className="final-cta__title">
           Vamos transformar sua
@@ -66,54 +59,13 @@ function FinalCta() {
           influência em parceria real.
         </h2>
         <p className="final-cta__lede">
-          Conte um pouco sobre você. O time ShiverPartner retorna com os
-          próximos passos.
+          Candidate-se ao ShiverPartner e o time retorna com os próximos passos.
         </p>
 
-        {/* Integração futura: substituir handleSubmit por POST para API/CRM */}
-        <form className="final-cta__form" onSubmit={handleSubmit} noValidate>
-          <div className="final-cta__fields">
-            <label>
-              <span>Nome</span>
-              <input name="name" type="text" autoComplete="name" required />
-            </label>
-            <label>
-              <span>Instagram / @social</span>
-              <input name="social" type="text" autoComplete="username" required />
-            </label>
-            <label>
-              <span>Email</span>
-              <input name="email" type="email" autoComplete="email" required />
-            </label>
-            <label>
-              <span>WhatsApp</span>
-              <input name="whatsapp" type="tel" autoComplete="tel" />
-            </label>
-            <label>
-              <span>Principal plataforma</span>
-              <select name="platform" defaultValue="">
-                <option value="" disabled>
-                  Selecione
-                </option>
-                <option value="instagram">Instagram</option>
-                <option value="tiktok">TikTok</option>
-                <option value="youtube">YouTube</option>
-                <option value="twitch">Twitch</option>
-                <option value="x">X</option>
-                <option value="outra">Outra</option>
-              </select>
-            </label>
-            <label>
-              <span>Nicho</span>
-              <input name="niche" type="text" placeholder="Ex.: games, lifestyle…" />
-            </label>
-          </div>
-
-          <button className="final-cta__primary" type="submit">
-            Quero começar
-            <span aria-hidden="true">→</span>
-          </button>
-        </form>
+        <a className="final-cta__primary" href={APPLY_FORM_URL}>
+          Quero começar
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
   )

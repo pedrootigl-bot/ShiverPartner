@@ -26,11 +26,13 @@ const StrokeText = ({
   letterSpacing = -4,
   reverse = false,
   className = '',
-  style = {}
+  style = {},
+  onComplete,
 }) => {
   const rootRef = useRef(null);
   const strokeTextRef = useRef(null);
   const wipeRectRef = useRef(null);
+  const onCompleteRef = useRef(onComplete);
 
   const [box, setBox] = useState(null);
 
@@ -49,6 +51,10 @@ const StrokeText = ({
     }),
     [fontSize, fontWeight, letterSpacing]
   );
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   useLayoutEffect(() => {
     const node = strokeTextRef.current;
@@ -126,6 +132,7 @@ const StrokeText = ({
     const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
       setEnd();
+      onCompleteRef.current?.();
       return () => gsap.killTweensOf(targets);
     }
 
@@ -135,7 +142,10 @@ const StrokeText = ({
         paused: true,
         repeat: trigger === 'loop' ? -1 : 0,
         repeatDelay: trigger === 'loop' ? 0.9 : 0,
-        defaults: { overwrite: 'auto' }
+        defaults: { overwrite: 'auto' },
+        onComplete: () => {
+          if (trigger !== 'loop') onCompleteRef.current?.();
+        },
       });
 
       tl.to(strokes, { strokeDashoffset: 0, duration: drawDuration, ease, stagger: staggerConfig }, 0);

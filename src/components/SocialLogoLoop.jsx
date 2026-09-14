@@ -6,7 +6,7 @@ import {
   SiX,
 } from 'react-icons/si'
 import LogoLoop from './LogoLoop'
-import earthBg from '../assets/platforms-earth.png'
+import earthBg from '../assets/platforms-earth.webp'
 import { useIsMobile } from '../hooks/useIsMobile'
 import { useReveal } from '../hooks/useReveal'
 import './SocialLogoLoop.css'
@@ -66,12 +66,21 @@ const platforms = [
 
 function SocialLogoLoop() {
   const isMobile = useIsMobile()
-  const { ref, visible } = useReveal()
+  const { ref, visible } = useReveal({
+    threshold: 0.12,
+    rootMargin: '0px 0px -8% 0px',
+  })
   const revealed = visible ? ' is-revealed' : ''
+  const logos = isMobile ? platforms.slice(0, 3) : platforms
 
   return (
-    <section id="plataformas" className="platforms" aria-labelledby="platforms-title">
-      <div className="platforms__bg" aria-hidden="true">
+    <section
+      id="plataformas"
+      ref={ref}
+      className={`platforms${revealed}`}
+      aria-labelledby="platforms-title"
+    >
+      <div className="platforms__bg bg-reveal bg-reveal--bottom" aria-hidden="true">
         <img
           src={earthBg}
           alt=""
@@ -81,9 +90,9 @@ function SocialLogoLoop() {
           decoding="async"
         />
       </div>
-      <div className="platforms__veil" aria-hidden="true" />
+      <div className="platforms__veil bg-veil" aria-hidden="true" />
 
-      <div ref={ref} className="platforms__inner">
+      <div className="platforms__inner">
         <div className={`platforms__header reveal${revealed}`}>
           <div className="platforms__heading">
             <p className="platforms__eyebrow">Onde sua audiência está</p>
@@ -99,11 +108,11 @@ function SocialLogoLoop() {
         <div className={`platforms__loop-frame reveal reveal-delay-2${revealed}`}>
           <div className="platforms__loop">
             <LogoLoop
-              logos={platforms}
-              speed={isMobile ? 45 : 58}
+              logos={logos}
+              speed={isMobile ? 38 : 58}
               direction="left"
-              logoHeight={isMobile ? 48 : 64}
-              gap={isMobile ? 36 : 48}
+              logoHeight={isMobile ? 42 : 64}
+              gap={isMobile ? 28 : 48}
               hoverSpeed={0}
               scaleOnHover={false}
               fadeOut

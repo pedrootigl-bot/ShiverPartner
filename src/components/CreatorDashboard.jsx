@@ -1,4 +1,4 @@
-import dashboardDevices from '../assets/dashboard-devices.png'
+import dashboardDevices from '../assets/dashboard-devices.webp'
 import { useReveal } from '../hooks/useReveal'
 import './CreatorDashboard.css'
 
@@ -62,24 +62,29 @@ const features = [
 ]
 
 function CreatorDashboard() {
-  const { ref, visible } = useReveal()
+  const { ref, visible } = useReveal({
+    threshold: 0.12,
+    rootMargin: '0px 0px -8% 0px',
+  })
   const revealed = visible ? ' is-revealed' : ''
 
   return (
-    <section id="dashboard" className="creator-dashboard">
-      <div ref={ref} className="creator-dashboard__shell">
+    <section id="dashboard" ref={ref} className={`creator-dashboard${revealed}`}>
+      <div className="creator-dashboard__shell">
         <div className="creator-dashboard__grid">
-          <div className={`creator-dashboard__copy reveal${revealed}`}>
-            <p className="creator-dashboard__eyebrow">Creator dashboard</p>
-            <h2 className="creator-dashboard__title">
-              Tudo que você precisa.
-              <br />
-              <span>Em um só lugar.</span>
-            </h2>
-            <p className="creator-dashboard__lede">
-              Organize suas campanhas, acesse materiais e acompanhe sua
-              performance em um painel feito para creators.
-            </p>
+          <div className="creator-dashboard__copy">
+            <div className={`creator-dashboard__intro reveal${revealed}`}>
+              <p className="creator-dashboard__eyebrow">Creator dashboard</p>
+              <h2 className="creator-dashboard__title">
+                Tudo que você precisa.
+                <br />
+                <span>Em um só lugar.</span>
+              </h2>
+              <p className="creator-dashboard__lede">
+                Organize suas campanhas, acesse materiais e acompanhe sua
+                performance em um painel feito para creators.
+              </p>
+            </div>
 
             <ul className={`creator-dashboard__features reveal-stagger${revealed}`}>
               {features.map((item) => (
@@ -93,7 +98,7 @@ function CreatorDashboard() {
               ))}
             </ul>
 
-            <div className="creator-dashboard__actions">
+            <div className={`creator-dashboard__actions reveal reveal-delay-2${revealed}`}>
               <a className="creator-dashboard__cta" href="#contato">
                 Quero ser parceiro
                 <span aria-hidden="true">→</span>
@@ -105,7 +110,7 @@ function CreatorDashboard() {
             </div>
           </div>
 
-          <div className={`creator-dashboard__stage reveal reveal-delay-2${revealed}`}>
+          <div className="creator-dashboard__stage">
             <div className="creator-dashboard__glow" aria-hidden="true" />
 
             <div className="cd-float cd-float--left" aria-hidden="true">
@@ -133,7 +138,7 @@ function CreatorDashboard() {
             </div>
 
             <img
-              className="creator-dashboard__devices"
+              className="creator-dashboard__devices bg-reveal"
               src={dashboardDevices}
               alt="Painel ShiverPartner no notebook e no celular"
               width="1400"

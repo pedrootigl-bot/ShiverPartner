@@ -1,4 +1,5 @@
 import { useReveal } from '../hooks/useReveal'
+import { useIsMobile } from '../hooks/useIsMobile'
 import './WhoCanJoin.css'
 
 const criteria = [
@@ -11,8 +12,10 @@ const criteria = [
 ]
 
 function WhoCanJoin() {
+  const isMobile = useIsMobile(900)
   const { ref, visible } = useReveal()
   const revealed = visible ? ' is-revealed' : ''
+  const list = isMobile ? criteria.slice(0, 4) : criteria
 
   return (
     <section id="quem-pode" className="who-can-join">
@@ -31,7 +34,7 @@ function WhoCanJoin() {
         </div>
 
         <ul className={`who-can-join__list reveal-stagger${revealed}`}>
-          {criteria.map((item) => (
+          {list.map((item) => (
             <li key={item}>
               <span aria-hidden="true">✓</span>
               {item}

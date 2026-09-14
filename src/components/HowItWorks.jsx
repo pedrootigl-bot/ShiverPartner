@@ -1,3 +1,6 @@
+import { useEffect, useMemo, useState } from 'react'
+import Carousel from './Carousel'
+import { useIsMobile } from '../hooks/useIsMobile'
 import { useReveal } from '../hooks/useReveal'
 import './HowItWorks.css'
 
@@ -93,9 +96,44 @@ const steps = [
   },
 ]
 
+function useCarouselWidth(maxWidth = 320) {
+  const [width, setWidth] = useState(() => {
+    if (typeof window === 'undefined') return maxWidth
+    const pad = window.innerWidth > 900 ? 80 : 40
+    return Math.min(maxWidth, Math.max(260, window.innerWidth - pad))
+  })
+
+  useEffect(() => {
+    const update = () => {
+      const pad = window.innerWidth > 900 ? 80 : 40
+      const cap = window.innerWidth > 900 ? 360 : maxWidth
+      setWidth(Math.min(cap, Math.max(260, window.innerWidth - pad)))
+    }
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [maxWidth])
+
+  return width
+}
+
 function HowItWorks() {
+  const isMobile = useIsMobile(900)
   const { ref, visible } = useReveal()
   const revealed = visible ? ' is-revealed' : ''
+  const carouselWidth = useCarouselWidth(320)
+
+  const carouselItems = useMemo(
+    () =>
+      steps.map((step, index) => ({
+        id: index + 1,
+        number: index + 1,
+        title: step.title,
+        description: step.text,
+        icon: step.icon,
+      })),
+    [],
+  )
 
   return (
     <section id="como-funciona" className="how-it-works">
@@ -117,16 +155,29 @@ function HowItWorks() {
           </p>
         </header>
 
-        <ol className={`how-it-works__steps reveal-stagger${revealed}`}>
-          {steps.map((step, index) => (
-            <li key={step.id} className="how-it-works__step">
-              <span className="how-it-works__number">{index + 1}</span>
-              <span className="how-it-works__icon">{step.icon}</span>
-              <h3>{step.title}</h3>
-              <p>{step.text}</p>
-            </li>
-          ))}
-        </ol>
+        {isMobile ? (
+          <div className={`how-it-works__carousel reveal${revealed}`}>
+            <Carousel
+              items={carouselItems}
+              baseWidth={carouselWidth}
+              autoplay
+              autoplayDelay={3200}
+              pauseOnHover
+              loop
+            />
+          </div>
+        ) : (
+          <ol className={`how-it-works__steps reveal-stagger${revealed}`}>
+            {steps.map((step, index) => (
+              <li key={step.id} className="how-it-works__step">
+                <span className="how-it-works__number">{index + 1}</span>
+                <span className="how-it-works__icon">{step.icon}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </li>
+            ))}
+          </ol>
+        )}
       </div>
     </section>
   )

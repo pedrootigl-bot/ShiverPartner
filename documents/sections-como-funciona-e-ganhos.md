@@ -12,7 +12,7 @@ Data: 2026-09-14
 ## Ganhe de 3 formas (`EarnWays` / `#ganhos`)
 
 - Layout centralizado (referência atualizada)
-- Background `src/assets/earn-ways-bg.png` (rochas + flare azul)
+- Background `src/assets/earn-ways-bg.webp` (rochas + flare azul)
 - Header + 3 cards glass (01/02/03) com visuais CSS
 - CTA pill central + perks (simples / seguros / suporte)
 - Inserida após `HowItWorks` e antes de `CreatorDashboard`

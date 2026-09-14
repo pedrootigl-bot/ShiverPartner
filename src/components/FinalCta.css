@@ -1,7 +1,7 @@
 .final-cta {
   position: relative;
   isolation: isolate;
-  min-height: clamp(520px, 72svh, 720px);
+  min-height: clamp(420px, 58svh, 620px);
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -31,7 +31,6 @@
   z-index: 2;
   width: min(720px, 100%);
   text-align: center;
-  animation: final-cta-rise 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .final-cta__eyebrow {
@@ -57,105 +56,18 @@
 
 .final-cta__lede {
   margin: 0 auto 2rem;
-  max-width: 42ch;
+  max-width: 40ch;
   font-family: var(--font-body);
   font-size: clamp(1rem, 1.6vw, 1.12rem);
   line-height: 1.65;
   color: rgba(238, 243, 255, 0.74);
 }
 
-.final-cta__form {
-  width: min(560px, 100%);
-  margin: 0 auto;
-  text-align: left;
-}
-
-.final-cta__fields {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.85rem;
-  margin-bottom: 1.25rem;
-}
-
-.final-cta__fields label {
-  display: grid;
-  gap: 0.35rem;
-}
-
-.final-cta__fields label span {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: rgba(238, 243, 255, 0.72);
-}
-
-.final-cta__fields input,
-.final-cta__fields select {
-  width: 100%;
-  min-height: 2.85rem;
-  padding: 0.65rem 0.85rem;
-  border: 1px solid rgba(154, 212, 255, 0.28);
-  border-radius: 0.7rem;
-  background: rgba(7, 8, 18, 0.55);
-  color: #eef3ff;
-  font-family: var(--font-body);
-  font-size: 16px;
-}
-
-.final-cta__fields input::placeholder {
-  color: rgba(238, 243, 255, 0.35);
-}
-
-.final-cta__fields input:focus,
-.final-cta__fields select:focus {
-  outline: 2px solid rgba(126, 200, 255, 0.45);
-  outline-offset: 1px;
-}
-
 .final-cta__primary {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  width: 100%;
   min-height: 3.15rem;
-  padding: 0.85rem 1.5rem;
-  border: 1px solid rgba(126, 200, 255, 0.55);
-  border-radius: 0.85rem;
-  background: linear-gradient(180deg, #7ec8ff 0%, #4fa8e8 100%);
-  color: #041018;
-  font-family: var(--font-body);
+  padding: 0.85rem 1.75rem;
   font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow:
-    0 12px 32px rgba(79, 168, 232, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.final-cta__primary:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 16px 36px rgba(79, 168, 232, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
-}
-
-@keyframes final-cta-rise {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 800px) {
-  .final-cta__fields {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 640px) {
@@ -175,12 +87,14 @@
 
   .final-cta__primary {
     width: 100%;
+    max-width: 22rem;
+    justify-content: center;
     min-height: 3rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .final-cta__content {
-    animation: none;
+    opacity: 1;
   }
 }

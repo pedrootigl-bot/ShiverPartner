@@ -1,4 +1,5 @@
-import manifestoCreator from '../assets/manifesto-creator.png'
+import manifestoCreator from '../assets/manifesto-creator.webp'
+import { useReveal } from '../hooks/useReveal'
 import './PartnerProgram.css'
 
 const features = [
@@ -76,8 +77,17 @@ const features = [
 ]
 
 function PartnerProgram() {
+  const { ref, visible } = useReveal({
+    threshold: 0.2,
+    rootMargin: '0px 0px -12% 0px',
+  })
+
   return (
-    <section id="programa" className="partner-program">
+    <section
+      id="programa"
+      ref={ref}
+      className={`partner-program${visible ? ' is-revealed' : ''}`}
+    >
       <div className="partner-program__media" aria-hidden="true">
         <img
           src={manifestoCreator}

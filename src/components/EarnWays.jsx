@@ -1,4 +1,4 @@
-import earnWaysBg from '../assets/earn-ways-bg.png'
+import earnWaysBg from '../assets/earn-ways-bg.webp'
 import { useReveal } from '../hooks/useReveal'
 import './EarnWays.css'
 
@@ -235,12 +235,15 @@ function CardVisual({ type }) {
 }
 
 function EarnWays() {
-  const { ref, visible } = useReveal()
+  const { ref, visible } = useReveal({
+    threshold: 0.12,
+    rootMargin: '0px 0px -8% 0px',
+  })
   const revealed = visible ? ' is-revealed' : ''
 
   return (
-    <section id="ganhos" className="earn-ways">
-      <div className="earn-ways__bg" aria-hidden="true">
+    <section id="ganhos" ref={ref} className={`earn-ways${revealed}`}>
+      <div className="earn-ways__bg bg-reveal bg-reveal--mid" aria-hidden="true">
         <img
           src={earnWaysBg}
           alt=""
@@ -250,9 +253,9 @@ function EarnWays() {
           decoding="async"
         />
       </div>
-      <div className="earn-ways__veil" aria-hidden="true" />
+      <div className="earn-ways__veil bg-veil" aria-hidden="true" />
 
-      <div ref={ref} className="earn-ways__shell">
+      <div className="earn-ways__shell">
         <header className={`earn-ways__header reveal${revealed}`}>
           <p className="earn-ways__eyebrow">
             <span aria-hidden="true">—</span>
@@ -286,12 +289,7 @@ function EarnWays() {
           ))}
         </ul>
 
-        <a className={`earn-ways__cta reveal reveal-delay-2${revealed}`} href="#contato">
-          Quero ser parceiro
-          <span aria-hidden="true">→</span>
-        </a>
-
-        <ul className={`earn-ways__perks reveal reveal-delay-3${revealed}`}>
+        <ul className={`earn-ways__perks reveal reveal-delay-2${revealed}`}>
           {perks.map((perk) => (
             <li key={perk.id}>
               <span className="earn-ways__perk-icon">{perk.icon}</span>
@@ -299,6 +297,11 @@ function EarnWays() {
             </li>
           ))}
         </ul>
+
+        <a className={`earn-ways__cta reveal reveal-delay-3${revealed}`} href="#contato">
+          Quero ser parceiro
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
   )

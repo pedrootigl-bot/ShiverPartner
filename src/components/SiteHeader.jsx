@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import LightPillar from './LightPillar'
 import StrokeText from './StrokeText'
 import { useIsMobile } from '../hooks/useIsMobile'
@@ -5,6 +6,7 @@ import './SiteHeader.css'
 
 function SiteHeader() {
   const isMobile = useIsMobile()
+  const [introReady, setIntroReady] = useState(false)
 
   return (
     <header id="topo" className="site-header">
@@ -27,8 +29,12 @@ function SiteHeader() {
 
       <div className="site-header__veil" aria-hidden="true" />
 
-      <div className="site-header__content">
-        <p className="site-header__eyebrow">Programa de creators Shiver</p>
+      <div
+        className={`site-header__content${introReady ? ' is-ready' : ''}`}
+      >
+        <p className="site-header__eyebrow site-header__item">
+          Programa de creators Shiver
+        </p>
 
         <h1 className="site-header__brand">
           <StrokeText
@@ -45,21 +51,22 @@ function SiteHeader() {
             fontSize={isMobile ? 96 : 128}
             fontWeight={800}
             letterSpacing={isMobile ? -2 : -4}
+            onComplete={() => setIntroReady(true)}
           />
         </h1>
 
-        <p className="site-header__headline">
+        <p className="site-header__headline site-header__item">
           Transforme sua influência
           <br />
           <span>em parceria.</span>
         </p>
 
-        <p className="site-header__lede">
+        <p className="site-header__lede site-header__item">
           Campanhas, materiais e acompanhamento para creators
           trabalharem com a Shiver de forma estruturada.
         </p>
 
-        <div className="site-header__actions">
+        <div className="site-header__actions site-header__item">
           <a className="site-header__cta" href="#contato">
             Quero ser parceiro
           </a>

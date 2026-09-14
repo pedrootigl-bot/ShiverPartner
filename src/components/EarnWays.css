@@ -122,6 +122,38 @@
     0 0 0 1px rgba(0, 163, 255, 0.06) inset,
     0 18px 40px rgba(0, 0, 0, 0.35),
     0 0 28px rgba(0, 163, 255, 0.08);
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.earn-ways__card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 163, 255, 0.65);
+  background: linear-gradient(180deg, rgba(18, 30, 52, 0.9), rgba(8, 14, 28, 0.86));
+  box-shadow:
+    0 0 0 1px rgba(0, 163, 255, 0.14) inset,
+    0 24px 48px rgba(0, 0, 0, 0.42),
+    0 0 36px rgba(0, 163, 255, 0.22);
+}
+
+.earn-ways__card:hover .earn-ways__badge {
+  border-color: rgba(126, 200, 255, 0.75);
+  background: rgba(0, 163, 255, 0.22);
+  box-shadow: 0 0 18px rgba(0, 163, 255, 0.45);
+  color: #9ad4ff;
+}
+
+.earn-ways__card:hover .earn-ways__accent {
+  width: 4.2rem;
+  background: linear-gradient(90deg, #4db8ff, #00a3ff, transparent);
+  box-shadow: 0 0 16px rgba(0, 163, 255, 0.75);
+}
+
+.earn-ways__card:hover .earn-visual__svg {
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35)) drop-shadow(0 0 18px rgba(0, 163, 255, 0.35));
 }
 
 .earn-ways__card-top {
@@ -137,6 +169,11 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   color: rgba(180, 198, 220, 0.55);
+  transition: color 0.3s ease;
+}
+
+.earn-ways__card:hover .earn-ways__index {
+  color: rgba(154, 212, 255, 0.85);
 }
 
 .earn-ways__badge {
@@ -149,6 +186,11 @@
   border: 1px solid rgba(0, 163, 255, 0.45);
   background: rgba(0, 163, 255, 0.12);
   box-shadow: 0 0 14px rgba(0, 163, 255, 0.28);
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    color 0.3s ease;
 }
 
 .earn-ways__badge svg {
@@ -211,41 +253,20 @@
   margin-top: auto;
   align-self: flex-start;
   margin-left: 0.35rem;
+  transition: width 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .earn-ways__cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
   min-height: 3.2rem;
   min-width: min(100%, 18rem);
+  margin-top: 1.75rem;
   padding: 0.9rem 1.8rem;
-  border-radius: 999px;
-  border: 1px solid rgba(126, 200, 255, 0.55);
-  background: linear-gradient(90deg, #1a8fd9 0%, #3db8ff 55%, #7ec8ff 100%);
-  color: #041018;
-  font-weight: 700;
   font-size: 1rem;
-  text-decoration: none;
-  box-shadow:
-    0 0 0 1px rgba(0, 163, 255, 0.18),
-    0 14px 36px rgba(0, 136, 224, 0.4),
-    0 0 40px rgba(0, 163, 255, 0.25);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.earn-ways__cta:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 0 0 1px rgba(0, 163, 255, 0.28),
-    0 18px 42px rgba(0, 136, 224, 0.5),
-    0 0 48px rgba(0, 163, 255, 0.32);
 }
 
 .earn-ways__perks {
   list-style: none;
-  margin: 1.65rem 0 0;
+  margin: 1.5rem 0 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
@@ -357,5 +378,11 @@
   .earn-visual--chart .earn-visual__svg,
   .earn-visual--coins .earn-visual__svg {
     animation: none;
+  }
+
+  .earn-ways__card,
+  .earn-ways__card:hover {
+    transform: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
 }

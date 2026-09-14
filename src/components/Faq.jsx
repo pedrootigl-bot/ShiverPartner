@@ -81,12 +81,15 @@ function Faq() {
     <section id="faq" className="faq">
       <div ref={ref} className="faq__inner">
         <header className={`faq__header reveal${revealed}`}>
-          <p className="faq__eyebrow">FAQ</p>
-          <h2 className="faq__title">
-            Perguntas
-            <br />
-            <span>frequentes.</span>
-          </h2>
+          <div className="faq__heading">
+            <p className="faq__eyebrow">FAQ</p>
+            <h2 className="faq__title">
+              Perguntas
+              <br />
+              <span>frequentes.</span>
+            </h2>
+          </div>
+
           <div className="faq__support">
             <p className="faq__support-title">Não encontrou sua dúvida?</p>
             <p className="faq__support-text">Fale com o nosso time</p>
