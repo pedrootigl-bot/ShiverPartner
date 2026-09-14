@@ -137,9 +137,6 @@ function HowItWorks() {
 
   return (
     <section id="como-funciona" className="how-it-works">
-      <div className="how-it-works__glow how-it-works__glow--tl" aria-hidden="true" />
-      <div className="how-it-works__glow how-it-works__glow--br" aria-hidden="true" />
-
       <div ref={ref} className="how-it-works__inner">
         <header className={`how-it-works__header reveal${revealed}`}>
           <div className="how-it-works__badge-row">

@@ -51,11 +51,10 @@
   transform: translateX(-50%);
   border-radius: 999px;
   border: 1px solid rgba(0, 163, 255, 0.55);
-  background: radial-gradient(circle at 40% 35%, #3db8ff, #0077cc 70%);
+  background: #0d8fd4;
   color: #fff;
   font-size: 0.82rem;
   font-weight: 800;
-  box-shadow: 0 0 18px rgba(0, 163, 255, 0.45);
 }
 
 .carousel-item-header {
