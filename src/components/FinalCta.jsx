@@ -51,18 +51,18 @@ function FinalCta() {
 
       <div className="final-cta__veil bg-veil" aria-hidden="true" />
 
-      <div className={`final-cta__content reveal${visible ? ' is-revealed' : ''}`}>
-        <p className="final-cta__eyebrow">Comece agora</p>
-        <h2 className="final-cta__title">
+      <div className={`final-cta__content${visible ? ' is-revealed' : ''}`}>
+        <p className="final-cta__eyebrow reveal-text">Comece agora</p>
+        <h2 className="final-cta__title reveal-text">
           Vamos transformar sua
           <br />
           influência em parceria real.
         </h2>
-        <p className="final-cta__lede">
+        <p className="final-cta__lede reveal-text">
           Candidate-se ao ShiverPartner e o time retorna com os próximos passos.
         </p>
 
-        <a className="final-cta__primary" href={APPLY_FORM_URL}>
+        <a className="final-cta__primary reveal-text" href={APPLY_FORM_URL}>
           Quero começar
           <span aria-hidden="true">→</span>
         </a>

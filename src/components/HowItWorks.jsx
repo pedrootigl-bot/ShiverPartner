@@ -136,18 +136,18 @@ function HowItWorks() {
   )
 
   return (
-    <section id="como-funciona" className="how-it-works">
-      <div ref={ref} className="how-it-works__inner">
-        <header className={`how-it-works__header reveal${revealed}`}>
-          <div className="how-it-works__badge-row">
+    <section id="como-funciona" ref={ref} className={`how-it-works${revealed}`}>
+      <div className="how-it-works__inner">
+        <header className={`how-it-works__header${revealed}`}>
+          <div className="how-it-works__badge-row reveal-text">
             <span className="how-it-works__rule" aria-hidden="true" />
             <p className="how-it-works__badge">Como funciona</p>
             <span className="how-it-works__rule" aria-hidden="true" />
           </div>
-          <h2 className="how-it-works__title">
+          <h2 className="how-it-works__title reveal-text">
             Do seu conteúdo ao <span>seu crescimento</span>
           </h2>
-          <p className="how-it-works__lede">
+          <p className="how-it-works__lede reveal-text">
             Um processo simples para creators que querem crescer com clareza.
           </p>
         </header>
@@ -169,8 +169,8 @@ function HowItWorks() {
               <li key={step.id} className="how-it-works__step">
                 <span className="how-it-works__number">{index + 1}</span>
                 <span className="how-it-works__icon">{step.icon}</span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
+                <h3 className="reveal-text">{step.title}</h3>
+                <p className="reveal-text">{step.text}</p>
               </li>
             ))}
           </ol>

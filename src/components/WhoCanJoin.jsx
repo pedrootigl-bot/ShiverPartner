@@ -18,16 +18,16 @@ function WhoCanJoin() {
   const list = isMobile ? criteria.slice(0, 4) : criteria
 
   return (
-    <section id="quem-pode" className="who-can-join">
-      <div ref={ref} className="who-can-join__inner">
-        <div className={`who-can-join__copy reveal${revealed}`}>
-          <p className="who-can-join__eyebrow">Quem pode participar</p>
-          <h2 className="who-can-join__title">
+    <section id="quem-pode" ref={ref} className={`who-can-join${revealed}`}>
+      <div className="who-can-join__inner">
+        <div className={`who-can-join__copy${revealed}`}>
+          <p className="who-can-join__eyebrow reveal-text">Quem pode participar</p>
+          <h2 className="who-can-join__title reveal-text">
             Feito para creators que constroem
             <br />
             <span>audiência de verdade.</span>
           </h2>
-          <p className="who-can-join__lede">
+          <p className="who-can-join__lede reveal-text">
             Não se trata só de número de seguidores. Buscamos presença,
             autenticidade e alinhamento com a Shiver.
           </p>

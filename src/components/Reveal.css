@@ -2,8 +2,8 @@
   opacity: 0;
   transform: translateY(22px);
   transition:
-    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.is-revealed {
@@ -11,12 +11,51 @@
   transform: translateY(0);
 }
 
+/* Texto: fade in / fade out puro */
+.reveal-text {
+  opacity: 0;
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-text.is-revealed,
+.is-revealed .reveal-text,
+.reveal.is-revealed .reveal-text,
+.reveal-stagger.is-revealed .reveal-text {
+  opacity: 1;
+}
+
+/* Dentro de cards staggered, o texto acompanha o card (sem delay extra) */
+.reveal-stagger.is-revealed .reveal-text {
+  transition-delay: 0s;
+}
+
+.is-revealed .reveal-text:nth-child(1),
+.reveal.is-revealed .reveal-text:nth-child(1) {
+  transition-delay: 0.04s;
+}
+.is-revealed .reveal-text:nth-child(2),
+.reveal.is-revealed .reveal-text:nth-child(2) {
+  transition-delay: 0.12s;
+}
+.is-revealed .reveal-text:nth-child(3),
+.reveal.is-revealed .reveal-text:nth-child(3) {
+  transition-delay: 0.2s;
+}
+.is-revealed .reveal-text:nth-child(4),
+.reveal.is-revealed .reveal-text:nth-child(4) {
+  transition-delay: 0.28s;
+}
+.is-revealed .reveal-text:nth-child(5),
+.reveal.is-revealed .reveal-text:nth-child(5) {
+  transition-delay: 0.36s;
+}
+
 .reveal-stagger > * {
   opacity: 0;
   transform: translateY(18px);
   transition:
-    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal-stagger.is-revealed > * {
@@ -28,45 +67,46 @@
   transition-delay: 0.04s;
 }
 .reveal-stagger.is-revealed > *:nth-child(2) {
-  transition-delay: 0.12s;
-}
-.reveal-stagger.is-revealed > *:nth-child(3) {
-  transition-delay: 0.2s;
-}
-.reveal-stagger.is-revealed > *:nth-child(4) {
-  transition-delay: 0.28s;
-}
-.reveal-stagger.is-revealed > *:nth-child(5) {
-  transition-delay: 0.36s;
-}
-.reveal-stagger.is-revealed > *:nth-child(6) {
-  transition-delay: 0.44s;
-}
-.reveal-stagger.is-revealed > *:nth-child(7) {
-  transition-delay: 0.52s;
-}
-.reveal-stagger.is-revealed > *:nth-child(8) {
-  transition-delay: 0.6s;
-}
-
-.reveal-delay-1 {
   transition-delay: 0.1s;
 }
-.reveal-delay-2 {
+.reveal-stagger.is-revealed > *:nth-child(3) {
+  transition-delay: 0.16s;
+}
+.reveal-stagger.is-revealed > *:nth-child(4) {
+  transition-delay: 0.22s;
+}
+.reveal-stagger.is-revealed > *:nth-child(5) {
+  transition-delay: 0.28s;
+}
+.reveal-stagger.is-revealed > *:nth-child(6) {
+  transition-delay: 0.34s;
+}
+.reveal-stagger.is-revealed > *:nth-child(7) {
+  transition-delay: 0.4s;
+}
+.reveal-stagger.is-revealed > *:nth-child(8) {
+  transition-delay: 0.46s;
+}
+
+/* Delays só na entrada (classe + is-revealed) */
+.reveal.is-revealed.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+.reveal.is-revealed.reveal-delay-2 {
   transition-delay: 0.2s;
 }
-.reveal-delay-3 {
+.reveal.is-revealed.reveal-delay-3 {
   transition-delay: 0.3s;
 }
 
-/* Background image entrance (sections after #3) */
+/* Background image entrance / exit */
 .bg-reveal {
   opacity: 0.28;
-  transform: scale(1.1);
+  transform: scale(1.08);
   transform-origin: center center;
   transition:
-    opacity 2s cubic-bezier(0.22, 1, 0.36, 1) 0.08s,
-    transform 2.6s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 
@@ -93,7 +133,7 @@
 
 .bg-veil {
   opacity: 0;
-  transition: opacity 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .is-revealed > .bg-veil,
@@ -114,6 +154,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .reveal,
+  .reveal-text,
   .reveal-stagger > *,
   .bg-reveal,
   .bg-veil {

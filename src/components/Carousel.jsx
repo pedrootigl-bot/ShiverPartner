@@ -36,8 +36,8 @@ function CarouselItem({ item, index, itemWidth, round, trackItemOffset, x, trans
       </div>
 
       <div className="carousel-item-content">
-        <div className="carousel-item-title">{item.title}</div>
-        <p className="carousel-item-description">{item.description}</p>
+        <div className="carousel-item-title reveal-text">{item.title}</div>
+        <p className="carousel-item-description reveal-text">{item.description}</p>
       </div>
     </motion.div>
   )

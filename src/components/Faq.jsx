@@ -78,12 +78,12 @@ function Faq() {
   const revealed = visible ? ' is-revealed' : ''
 
   return (
-    <section id="faq" className="faq">
-      <div ref={ref} className="faq__inner">
-        <header className={`faq__header reveal${revealed}`}>
+    <section id="faq" ref={ref} className={`faq${revealed}`}>
+      <div className="faq__inner">
+        <header className={`faq__header${revealed}`}>
           <div className="faq__heading">
-            <p className="faq__eyebrow">FAQ</p>
-            <h2 className="faq__title">
+            <p className="faq__eyebrow reveal-text">FAQ</p>
+            <h2 className="faq__title reveal-text">
               Perguntas
               <br />
               <span>frequentes.</span>
@@ -91,9 +91,9 @@ function Faq() {
           </div>
 
           <div className="faq__support">
-            <p className="faq__support-title">Não encontrou sua dúvida?</p>
-            <p className="faq__support-text">Fale com o nosso time</p>
-            <a className="faq__support-btn" href="#contato">
+            <p className="faq__support-title reveal-text">Não encontrou sua dúvida?</p>
+            <p className="faq__support-text reveal-text">Fale com o nosso time</p>
+            <a className="faq__support-btn reveal-text" href="#contato">
               Falar com o time
               <span aria-hidden="true">→</span>
             </a>

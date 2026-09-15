@@ -256,16 +256,16 @@ function EarnWays() {
       <div className="earn-ways__veil bg-veil" aria-hidden="true" />
 
       <div className="earn-ways__shell">
-        <header className={`earn-ways__header reveal${revealed}`}>
-          <p className="earn-ways__eyebrow">
+        <header className={`earn-ways__header${revealed}`}>
+          <p className="earn-ways__eyebrow reveal-text">
             <span aria-hidden="true">—</span>
             Mais resultados para você
             <span aria-hidden="true">—</span>
           </p>
-          <h2 className="earn-ways__title">
+          <h2 className="earn-ways__title reveal-text">
             Ganhe de <span>3</span> formas
           </h2>
-          <p className="earn-ways__lede">
+          <p className="earn-ways__lede reveal-text">
             Diversas oportunidades, um só programa. Escolha o que mais combina
             com você (ou aproveite todas) e transforme seu conteúdo em
             recompensa.
@@ -282,8 +282,8 @@ function EarnWays() {
 
               <CardVisual type={way.visual} />
 
-              <h3 className="earn-ways__card-title">{way.title}</h3>
-              <p className="earn-ways__card-text">{way.text}</p>
+              <h3 className="earn-ways__card-title reveal-text">{way.title}</h3>
+              <p className="earn-ways__card-text reveal-text">{way.text}</p>
               <span className="earn-ways__accent" aria-hidden="true" />
             </li>
           ))}

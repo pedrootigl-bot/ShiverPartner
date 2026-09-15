@@ -103,20 +103,20 @@ function PartnerProgram() {
 
       <div className="partner-program__shell">
         <div className="partner-program__copy">
-          <p className="partner-program__eyebrow">Mais que campanhas</p>
+          <p className="partner-program__eyebrow reveal-text">Mais que campanhas</p>
 
-          <h2 className="partner-program__title">
+          <h2 className="partner-program__title reveal-text">
             Criadores <span>movem</span> mercados.
           </h2>
 
-          <p className="partner-program__lede">
+          <p className="partner-program__lede reveal-text">
             A ShiverPartner conecta creators e marca em parcerias com presença,
             ritmo e acompanhamento — do primeiro contato à ativação contínua.
           </p>
 
           <ul className="partner-program__features">
             {features.map((feature) => (
-              <li key={feature.id} className="partner-program__feature">
+              <li key={feature.id} className="partner-program__feature reveal-text">
                 <span className="partner-program__feature-icon">{feature.icon}</span>
                 <span>{feature.label}</span>
               </li>

@@ -2,14 +2,20 @@ import { useState } from 'react'
 import LightPillar from './LightPillar'
 import StrokeText from './StrokeText'
 import { useIsMobile } from '../hooks/useIsMobile'
+import { useReveal } from '../hooks/useReveal'
 import './SiteHeader.css'
 
 function SiteHeader() {
   const isMobile = useIsMobile()
   const [introReady, setIntroReady] = useState(false)
+  const { ref, visible } = useReveal({
+    threshold: 0.2,
+    rootMargin: '0px 0px -12% 0px',
+    initialVisible: true,
+  })
 
   return (
-    <header id="topo" className="site-header">
+    <header id="topo" ref={ref} className="site-header">
       <div className="site-header__visual" aria-hidden="true">
         <LightPillar
           topColor="#7EC8FF"
@@ -30,7 +36,7 @@ function SiteHeader() {
       <div className="site-header__veil" aria-hidden="true" />
 
       <div
-        className={`site-header__content${introReady ? ' is-ready' : ''}`}
+        className={`site-header__content${introReady ? ' is-ready' : ''}${visible ? ' is-inview' : ''}`}
       >
         <p className="site-header__eyebrow site-header__item">
           Programa de creators Shiver

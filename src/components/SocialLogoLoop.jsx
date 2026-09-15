@@ -93,14 +93,14 @@ function SocialLogoLoop() {
       <div className="platforms__veil bg-veil" aria-hidden="true" />
 
       <div className="platforms__inner">
-        <div className={`platforms__header reveal${revealed}`}>
+        <div className={`platforms__header${revealed}`}>
           <div className="platforms__heading">
-            <p className="platforms__eyebrow">Onde sua audiência está</p>
-            <h2 id="platforms-title" className="platforms__title">
+            <p className="platforms__eyebrow reveal-text">Onde sua audiência está</p>
+            <h2 id="platforms-title" className="platforms__title reveal-text">
               Conteúdo não <span>tem fronteiras.</span>
             </h2>
           </div>
-          <p className="platforms__aside">
+          <p className="platforms__aside reveal-text">
             Presença nas principais plataformas globais.
           </p>
         </div>

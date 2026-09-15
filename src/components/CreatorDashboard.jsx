@@ -73,14 +73,14 @@ function CreatorDashboard() {
       <div className="creator-dashboard__shell">
         <div className="creator-dashboard__grid">
           <div className="creator-dashboard__copy">
-            <div className={`creator-dashboard__intro reveal${revealed}`}>
-              <p className="creator-dashboard__eyebrow">Creator dashboard</p>
-              <h2 className="creator-dashboard__title">
+            <div className={`creator-dashboard__intro${revealed}`}>
+              <p className="creator-dashboard__eyebrow reveal-text">Creator dashboard</p>
+              <h2 className="creator-dashboard__title reveal-text">
                 Tudo que você precisa.
                 <br />
                 <span>Em um só lugar.</span>
               </h2>
-              <p className="creator-dashboard__lede">
+              <p className="creator-dashboard__lede reveal-text">
                 Organize suas campanhas, acesse materiais e acompanhe sua
                 performance em um painel feito para creators.
               </p>
@@ -91,8 +91,8 @@ function CreatorDashboard() {
                 <li key={item.id}>
                   <span className="creator-dashboard__feature-icon">{item.icon}</span>
                   <div>
-                    <strong>{item.title}</strong>
-                    <p>{item.text}</p>
+                    <strong className="reveal-text">{item.title}</strong>
+                    <p className="reveal-text">{item.text}</p>
                   </div>
                 </li>
               ))}
