@@ -148,6 +148,7 @@
 .audience-motion__content.is-ready .audience-motion__cta {
   transition-delay: 0.88s;
   pointer-events: auto;
+  animation: audience-cta-border 2.6s ease-in-out 1.7s infinite;
 }
 
 .audience-motion__content.is-ready .audience-motion__formats {
@@ -206,6 +207,7 @@
   padding: 0.85rem 1.55rem;
   font-size: 1rem;
   backdrop-filter: blur(10px);
+  overflow: hidden;
   transition:
     opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.95s cubic-bezier(0.22, 1, 0.36, 1),
@@ -214,8 +216,52 @@
     color 0.2s ease;
 }
 
+.audience-motion__cta-arrow {
+  display: inline-block;
+  will-change: transform;
+}
+
+.audience-motion__content.is-ready .audience-motion__cta-arrow {
+  animation: audience-cta-arrow 1.35s cubic-bezier(0.45, 0, 0.4, 1) 1.7s infinite;
+}
+
 .audience-motion__content.is-ready .audience-motion__cta:hover {
   transform: translateY(-1px);
+  animation-play-state: paused;
+}
+
+.audience-motion__content.is-ready .audience-motion__cta:hover .audience-motion__cta-arrow {
+  animation: audience-cta-arrow-fast 0.7s cubic-bezier(0.45, 0, 0.4, 1) infinite;
+}
+
+@keyframes audience-cta-arrow {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+@keyframes audience-cta-arrow-fast {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+}
+
+@keyframes audience-cta-border {
+  0%,
+  100% {
+    border-color: rgba(238, 243, 255, 0.28);
+  }
+  50% {
+    border-color: rgba(154, 212, 255, 0.55);
+  }
 }
 
 .audience-motion__formats {
@@ -298,5 +344,11 @@
 
   .audience-motion__cta {
     pointer-events: auto;
+  }
+
+  .audience-motion__content.is-ready .audience-motion__cta,
+  .audience-motion__content.is-ready .audience-motion__cta-arrow,
+  .audience-motion__content.is-ready .audience-motion__cta:hover .audience-motion__cta-arrow {
+    animation: none;
   }
 }

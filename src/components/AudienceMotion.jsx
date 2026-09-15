@@ -57,7 +57,9 @@ function AudienceCopy({ ready }) {
 
       <a className="audience-motion__cta audience-motion__item" href="#contato">
         Quero ser parceiro
-        <span aria-hidden="true">→</span>
+        <span className="audience-motion__cta-arrow" aria-hidden="true">
+          →
+        </span>
       </a>
 
       <p className="audience-motion__formats audience-motion__item">
