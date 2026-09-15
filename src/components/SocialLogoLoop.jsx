@@ -20,7 +20,6 @@ const platforms = [
       </span>
     ),
     title: 'Instagram',
-    href: 'https://www.instagram.com',
   },
   {
     node: (
@@ -30,7 +29,6 @@ const platforms = [
       </span>
     ),
     title: 'TikTok',
-    href: 'https://www.tiktok.com',
   },
   {
     node: (
@@ -40,7 +38,6 @@ const platforms = [
       </span>
     ),
     title: 'YouTube',
-    href: 'https://www.youtube.com',
   },
   {
     node: (
@@ -50,7 +47,6 @@ const platforms = [
       </span>
     ),
     title: 'Twitch',
-    href: 'https://www.twitch.tv',
   },
   {
     node: (
@@ -60,7 +56,6 @@ const platforms = [
       </span>
     ),
     title: 'X',
-    href: 'https://x.com',
   },
 ]
 
