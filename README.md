@@ -9,13 +9,15 @@ npm install
 npm run dev
 ```
 
-Build para Hostinger:
+Build para Hostinger (**produção** em `/shiverpartner/`):
 
-```bash
-npm run build
+```powershell
+$env:BASE_PATH="/shiverpartner"; npm run build
 ```
 
-Envie o **conteúdo** de `dist/` para `public_html/` (veja o guia de deploy).
+Envie o **conteúdo** de `dist/` para `public_html/shiverpartner/`  
+Site: https://tradingsettings.com/shiverpartner/  
+(veja o guia de deploy).
 
 ## Documentação
 

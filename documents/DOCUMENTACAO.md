@@ -8,7 +8,7 @@ Landing page do programa de creators da **Shiver**, focada em conversão: aprese
 | Stack | React 19 + Vite 8 |
 | Tipo | SPA estática (sem backend neste repositório) |
 | Idioma da UI | Português (pt-BR) |
-| Deploy previsto | Hostinger (`public_html` / subpasta) |
+| Deploy produção | [tradingsettings.com/shiverpartner/](https://tradingsettings.com/shiverpartner/) (`BASE_PATH=/shiverpartner`) |
 
 ---
 
@@ -46,9 +46,9 @@ npm run lint         # oxlint
 
 | Variável | Uso |
 |----------|-----|
-| `BASE_PATH` | Base URL do Vite. Vazio = raiz do domínio. Ex.: `/shiverpartner` para subpasta na Hostinger. |
+| `BASE_PATH` | Base URL do Vite. **Produção:** `/shiverpartner`. Vazio = raiz do domínio. |
 
-PowerShell:
+PowerShell (produção):
 
 ```powershell
 $env:BASE_PATH="/shiverpartner"; npm run build
